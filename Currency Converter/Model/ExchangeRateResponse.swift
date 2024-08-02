@@ -8,7 +8,6 @@
 import Foundation
 
 struct ExchangeRateResponse: Codable {
-    
     let result: String
     let documentation, termsOfUse: String
     let timeLastUpdateUnix: Int
