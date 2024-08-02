@@ -14,7 +14,7 @@ struct ExchangeRateResponse: Codable {
     let timeLastUpdateUTC: String
     let timeNextUpdateUnix: Int
     let timeNextUpdateUTC, baseCode, targetCode: String
-    let conversionRate: Double
+    let conversionRate, conversionResult: Double
 
     enum CodingKeys: String, CodingKey {
         case result, documentation
@@ -26,5 +26,6 @@ struct ExchangeRateResponse: Codable {
         case baseCode = "base_code"
         case targetCode = "target_code"
         case conversionRate = "conversion_rate"
+        case conversionResult = "conversion_result"
     }
 }

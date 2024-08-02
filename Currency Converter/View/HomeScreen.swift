@@ -9,11 +9,25 @@ import SwiftUI
 
 struct HomeScreen: View {
     
-    @State var amount = 0.0
-    @State var convertedAmount = 0.0
+    @State var amount: Double = 0.0
     @State var sourceCurrency: String = "USD"
     @State var targetCurrency: String = "EUR"
-    @FocusState private var amountFieldFocus
+    @State var hasReset: Bool = true
+    
+    @FocusState private var amountFieldFocus: Bool
+    
+    @StateObject private var homeScreenViewModel: HomeScreenViewModel
+    
+    init(homeScreenViewModel: HomeScreenViewModel) {
+        _homeScreenViewModel = StateObject(wrappedValue: homeScreenViewModel)
+    }
+    
+    private var formatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencyCode = "\(sourceCurrency)"
+        return formatter
+    }
     
     var body: some View {
         NavigationStack {
@@ -26,6 +40,9 @@ struct HomeScreen: View {
                             }
                         }
                         .pickerStyle(.menu)
+                        .onChange(of: sourceCurrency) { _,_ in
+                            resetAmount()
+                        }
                         
                         Spacer()
                         
@@ -35,16 +52,29 @@ struct HomeScreen: View {
                             }
                         }
                         .pickerStyle(.menu)
+                        .onChange(of: targetCurrency) { _,_ in
+                            resetAmount()
+                        }
                     }
                     
                 }
-                Section("Amount") {
-                    TextField("Enter Amount", value: $amount, format: .currency(code: "\(sourceCurrency)"))
+                Section("Amount in \(sourceCurrency)") {
+                    TextField("Enter Amount", value: $amount, formatter: formatter)
                         .keyboardType(.numberPad)
                         .focused($amountFieldFocus)
+                        .onChange(of: amount) { _ , newValue in
+                            amount = round(newValue * 100) / 100
+                        }
+                        .onTapGesture {
+                            if !hasReset {
+                                homeScreenViewModel.resetData()
+                                hasReset = true
+                            }
+                        }
                 }
                 Button(action: {
-                    
+                    homeScreenViewModel.getExchangeRate(exchangeRateRequest: ExchangeRateRequest(fromCurrency: sourceCurrency, toCurrrency: targetCurrency, amount: amount))
+                    hasReset = false
                 }) {
                     Text("Convert")
                         .padding()
@@ -55,22 +85,48 @@ struct HomeScreen: View {
                 }
                 
                 Section("Amount in \(targetCurrency)") {
-                    Text(convertedAmount, format: .currency(code: "\(targetCurrency)"))
+                    Text(homeScreenViewModel.exchangeRateResponse?.conversionResult ?? 0.0, format: .currency(code: "\(targetCurrency)"))
                 }
+                
+                VStack(alignment: .center) {
+                    switch homeScreenViewModel.networkState {
+                    case .Idle:
+                        EmptyView()
+                    case .Loading:
+                        ProgressView("Loading...")
+                    case .Success:
+                        Section {
+                            Text("Exchange rate calculated!")
+                                .foregroundColor(.blue)
+                        }
+                    case .Error(let message):
+                        Section {
+                            Text("Error occurred :( \(message)")
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+                
             }
             .navigationTitle("Currency Converter")
             .toolbar {
                 if amountFieldFocus {
                     Button("Done") {
-                        amountFieldFocus.toggle()
+                        amountFieldFocus = false
                     }
                 }
                 
             }
         }
     }
+    
+    private func resetAmount() {
+        amount = 0.0
+    }
 }
 
 #Preview {
-    HomeScreen()
+    let container = AppDIContainer().container
+    let homeScreenViewModel = container.resolve(HomeScreenViewModel.self)!
+    return HomeScreen(homeScreenViewModel: homeScreenViewModel)
 }

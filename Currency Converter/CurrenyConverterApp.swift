@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct CurrencyConverterApp: App {
+    
+    let container = AppDIContainer().container
+    
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            let homeScreenViewModel = container.resolve(HomeScreenViewModel.self)!
+            HomeScreen(homeScreenViewModel: homeScreenViewModel)
         }
     }
 }

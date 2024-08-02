@@ -11,6 +11,7 @@
 		E8072B8A2C5CAE420099E57B /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8072B892C5CAE420099E57B /* ApiConfig.swift */; };
 		E8072B8E2C5CBD4E0099E57B /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8072B8D2C5CBD4E0099E57B /* HomeScreenViewModel.swift */; };
 		E8072B902C5CBDA80099E57B /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8072B8F2C5CBDA80099E57B /* NetworkState.swift */; };
+		E8072B932C5CCE4E0099E57B /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8072B922C5CCE4E0099E57B /* AppDIContainer.swift */; };
 		E88CD0552C5BFADC0016F918 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E88CD0542C5BFADC0016F918 /* Swinject */; };
 		E88CD05B2C5BFBD50016F918 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88CD05A2C5BFBD50016F918 /* Repository.swift */; };
 		E88CD05D2C5BFC010016F918 /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88CD05C2C5BFC010016F918 /* MainRepository.swift */; };
@@ -28,6 +29,7 @@
 		E8072B892C5CAE420099E57B /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
 		E8072B8D2C5CBD4E0099E57B /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		E8072B8F2C5CBDA80099E57B /* NetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
+		E8072B922C5CCE4E0099E57B /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		E88CD05A2C5BFBD50016F918 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		E88CD05C2C5BFC010016F918 /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		E88CD05E2C5C000F0016F918 /* ExchangeRateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateRequest.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 			path = Api;
 			sourceTree = "<group>";
 		};
+		E8072B912C5CCE190099E57B /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E8072B922C5CCE4E0099E57B /* AppDIContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		E88CD0592C5BFBB50016F918 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 		E89CC7012C5A3BB800F55CA5 /* Currency Converter */ = {
 			isa = PBXGroup;
 			children = (
+				E8072B912C5CCE190099E57B /* DI */,
 				E8072B862C5C83520099E57B /* Api */,
 				E88CD0592C5BFBB50016F918 /* Repository */,
 				E8D218CE2C5B6DA700F7C6DD /* Model */,
@@ -228,6 +239,7 @@
 				E8072B882C5C83620099E57B /* ApiService.swift in Sources */,
 				E88CD05B2C5BFBD50016F918 /* Repository.swift in Sources */,
 				E8072B902C5CBDA80099E57B /* NetworkState.swift in Sources */,
+				E8072B932C5CCE4E0099E57B /* AppDIContainer.swift in Sources */,
 				E89CC7032C5A3BB800F55CA5 /* CurrenyConverterApp.swift in Sources */,
 				E8D218D42C5B7F3D00F7C6DD /* ExchangeRateResponse.swift in Sources */,
 				E8072B8E2C5CBD4E0099E57B /* HomeScreenViewModel.swift in Sources */,

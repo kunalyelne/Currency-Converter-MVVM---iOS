@@ -6,15 +6,21 @@
 //
 
 import Foundation
+import OSLog
 
 class ApiService {
     
-    func request<T: Decodable>(_ endpoint: APIEndpoint) async -> Result<T, APIError> {
+    func request<T: Codable>(_ endpoint: APIEndpoint) async -> Result<T, APIError> {
         let urlRequest = endpoint.urlRequest
         do {
-            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
+            
+            if let response = urlResponse as? HTTPURLResponse {
+                os_log("Response status code: %d", log: .default, type: .info, response.statusCode)
+            }
+            
             do {
-                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                let decodedData = try JSONDecoder().decode(T.self, from: data)                
                 return .success(decodedData)
             } catch {
                 return .failure(.decodingError(error))

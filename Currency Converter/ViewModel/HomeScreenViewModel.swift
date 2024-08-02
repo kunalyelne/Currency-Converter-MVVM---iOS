@@ -20,15 +20,22 @@ class HomeScreenViewModel: ObservableObject {
     
     func getExchangeRate(exchangeRateRequest: ExchangeRateRequest) {
         Task {
+            await MainActor.run { networkState = .Loading }
             let result: Result<ExchangeRateResponse, APIError> = await mainRepository.getConvertedAmount(exchangeRateRequest: exchangeRateRequest)
-            
-            switch result {
-            case .success(let exchangeRateResponse):
-                self.exchangeRateResponse = exchangeRateResponse
-                networkState = .Success
-            case .failure(let apiError):
-                networkState = .Error(message: apiError.localizedDescription)
+            await MainActor.run {
+                switch result {
+                case .success(let exchangeRateResponse):
+                    self.exchangeRateResponse = exchangeRateResponse
+                    networkState = .Success
+                case .failure(let apiError):
+                    networkState = .Error(message: apiError.localizedDescription)
+                }
             }
         }
+    }
+    
+    func resetData() {
+        networkState = .Idle
+        exchangeRateResponse = nil
     }
 }

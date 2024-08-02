@@ -10,5 +10,5 @@ import Foundation
 struct ExchangeRateRequest {
     let fromCurrency: String
     let toCurrrency: String
-    let amount: String
+    let amount: Double
 }

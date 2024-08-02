@@ -22,7 +22,7 @@ enum APIEndpoint {
     }
     
     var apiKey: String {
-        return ""
+        return "4e612e8fdef03036f8390d88"
     }
     
     var path: String {
