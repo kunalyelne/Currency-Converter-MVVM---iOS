@@ -122,6 +122,7 @@ struct HomeScreen: View {
     
     private func resetAmount() {
         amount = 0.0
+        homeScreenViewModel.resetData()
     }
 }
 
