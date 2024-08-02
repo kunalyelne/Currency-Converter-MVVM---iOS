@@ -31,7 +31,6 @@
 		E8072B8D2C5CBD4E0099E57B /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		E8072B8F2C5CBDA80099E57B /* NetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
 		E8072B922C5CCE4E0099E57B /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
-		E8072B942C5D66B50099E57B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		E8072B952C5D67C10099E57B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E88CD05A2C5BFBD50016F918 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		E88CD05C2C5BFC010016F918 /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
@@ -87,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				E8072B952C5D67C10099E57B /* .gitignore */,
-				E8072B942C5D66B50099E57B /* Secrets.xcconfig */,
 				E89CC7012C5A3BB800F55CA5 /* Currency Converter */,
 				E89CC7002C5A3BB800F55CA5 /* Products */,
 			);
