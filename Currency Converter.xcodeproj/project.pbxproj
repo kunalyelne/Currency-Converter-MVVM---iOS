@@ -12,6 +12,7 @@
 		E8072B8E2C5CBD4E0099E57B /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8072B8D2C5CBD4E0099E57B /* HomeScreenViewModel.swift */; };
 		E8072B902C5CBDA80099E57B /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8072B8F2C5CBDA80099E57B /* NetworkState.swift */; };
 		E8072B932C5CCE4E0099E57B /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8072B922C5CCE4E0099E57B /* AppDIContainer.swift */; };
+		E8072B962C5D67C10099E57B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E8072B952C5D67C10099E57B /* .gitignore */; };
 		E88CD0552C5BFADC0016F918 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E88CD0542C5BFADC0016F918 /* Swinject */; };
 		E88CD05B2C5BFBD50016F918 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88CD05A2C5BFBD50016F918 /* Repository.swift */; };
 		E88CD05D2C5BFC010016F918 /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88CD05C2C5BFC010016F918 /* MainRepository.swift */; };
@@ -30,6 +31,8 @@
 		E8072B8D2C5CBD4E0099E57B /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		E8072B8F2C5CBDA80099E57B /* NetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
 		E8072B922C5CCE4E0099E57B /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		E8072B942C5D66B50099E57B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		E8072B952C5D67C10099E57B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E88CD05A2C5BFBD50016F918 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		E88CD05C2C5BFC010016F918 /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		E88CD05E2C5C000F0016F918 /* ExchangeRateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateRequest.swift; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 		E89CC6F62C5A3BB800F55CA5 = {
 			isa = PBXGroup;
 			children = (
+				E8072B952C5D67C10099E57B /* .gitignore */,
+				E8072B942C5D66B50099E57B /* Secrets.xcconfig */,
 				E89CC7012C5A3BB800F55CA5 /* Currency Converter */,
 				E89CC7002C5A3BB800F55CA5 /* Products */,
 			);
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E89CC70A2C5A3BBA00F55CA5 /* Preview Assets.xcassets in Resources */,
+				E8072B962C5D67C10099E57B /* .gitignore in Resources */,
 				E89CC7072C5A3BBA00F55CA5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
