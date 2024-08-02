@@ -22,7 +22,7 @@ enum APIEndpoint {
     }
     
     var apiKey: String {
-        return "4e612e8fdef03036f8390d88"
+        return APIKeys.exchangeRateApiKey
     }
     
     var path: String {
@@ -49,5 +49,14 @@ enum APIEndpoint {
         }
         
         return request
+    }
+}
+
+class APIKeys {
+    static var exchangeRateApiKey: String {
+        guard let apiKey = ProcessInfo.processInfo.environment["API_KEY"] else {
+            fatalError("API Key not found in environment variables.")
+        }
+        return apiKey
     }
 }
